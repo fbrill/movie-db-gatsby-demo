@@ -1,5 +1,5 @@
-import React from 'react';
 import { graphql, StaticQuery } from 'gatsby';
+import React from 'react';
 import styled from 'styled-components';
 import MoviePoster from './MoviePoster';
 
@@ -27,7 +27,8 @@ const MOVIE_LIST_QUERY = graphql`
 `;
 
 const MoviesListWrapper = styled.div`
-	border: 1px solid #ccc;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
 `;
 
 const MovieList = () => {
