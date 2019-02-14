@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 import Header from './header';
+import './layout.css';
 
 const PageFooter = styled.div`
 	a {

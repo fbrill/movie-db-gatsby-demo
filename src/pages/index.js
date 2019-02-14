@@ -10,6 +10,7 @@ import LogoJS from '../images/logos/javascript.svg';
 import LogoReact from '../images/logos/react.svg';
 import LogoWP from '../images/logos/wordpress.svg';
 import MainImage from '../images/site-main-slider.png';
+import '../components/layout.css';
 
 const Slider = styled.div`
 	background: #121016 url(${props => props.bg});
