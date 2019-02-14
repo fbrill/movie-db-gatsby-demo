@@ -32,7 +32,12 @@ const MovieItemWrapper = styled(Link)`
 const MoviePoster = ({ movie }) => {
 	return (
 		<MovieItemWrapper to={`/movies/${movie.slug}`}>
-			<p className="rating">⭐{movie.acf.rating}%</p>
+			<p className="rating">
+				<span role="img" aria-label="Star">
+					⭐
+				</span>
+				{movie.acf.rating}%
+			</p>
 			<img src={movie.acf.cover.source_url} alt={movie.name} />
 			{console.log(movie)}
 			<h2 dangerouslySetInnerHTML={{ __html: movie.title }} />

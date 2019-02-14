@@ -20,7 +20,7 @@ const Slider = styled.div`
 	min-height: 500px;
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: 1fr 100px 50px;
+	grid-template-rows: 1fr 100px 80px;
 	h1 {
 		font-weight: 300;
 		align-self: center;
@@ -28,10 +28,21 @@ const Slider = styled.div`
 	p {
 		align-self: flex-end;
 	}
-	.logos {
-		img {
-			max-width: 50px;
-			margin: 0 20px;
+	.logos img {
+		max-width: 50px;
+		margin: 20px;
+		transition: all 0.2s ease-in-out;
+	}
+	@media (max-width: 1140px) {
+		.logos img {
+			max-width: 40px;
+			margin: 15px;
+		}
+	}
+	@media (max-width: 900px) {
+		.logos img {
+			max-width: 30px;
+			margin: 10px;
 		}
 	}
 `;
@@ -40,7 +51,12 @@ const IndexPage = () => (
 	<div>
 		<SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
 		<Slider bg={MainImage}>
-			<h1>🎥 Movie Database</h1>
+			<h1>
+				<span role="img" aria-label="Camera">
+					🎥{'  '}
+				</span>
+				Movie Database
+			</h1>
 			<p>Powered by...</p>
 			<div className="logos">
 				<img src={LogoWP} alt="GraphQL" />
