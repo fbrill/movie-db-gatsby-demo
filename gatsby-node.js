@@ -1,7 +1,33 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const path = require('path');
 
-// You can delete this file if you're not using it
+// Create pages for all movies
+exports.createPages = ({ graphql, actions }) => {
+	const { createPage } = actions;
+
+	return graphql(`
+		{
+			allWordpressWpMovies {
+				edges {
+					node {
+						slug
+					}
+				}
+			}
+		}
+	`).then(result => {
+		if (result.errors) {
+			throw result.errors;
+		}
+
+		// Create movie post pages.
+		result.data.allWordpressWpMovies.edges.forEach(({ node }) => {
+			createPage({
+				path: `/movies/${node.slug}`,
+				component: path.resolve('./src/components/SingleMovie.js'),
+				context: {
+					slug: node.slug
+				}
+			});
+		});
+	});
+};

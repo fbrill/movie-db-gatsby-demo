@@ -25,6 +25,7 @@ const MOVIE_LIST_QUERY = graphql`
 		}
 	}
 `;
+
 const MoviesListWrapper = styled.div`
 	border: 1px solid #ccc;
 `;
